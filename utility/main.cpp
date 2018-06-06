@@ -144,14 +144,6 @@ void setKeyboardValues() {
     } else {
         std::cerr << "[clevo-xsm-wmi] Failed to set brightness" << std::endl;
     }
-    QFile fd_mode("/sys/devices/platform/clevo_xsm_wmi/kb_mode");
-    if(fd_mode.open(QIODevice::WriteOnly | QIODevice::Text) && keyboard_settings.mode >= 0) {
-        QTextStream out(&fd_mode);
-        out << keyboard_settings.mode;
-        fd_mode.close();
-    } else {
-        std::cerr << "[clevo-xsm-wmi] Failed to set mode" << std::endl;
-    }
     QFile fd_color("/sys/devices/platform/clevo_xsm_wmi/kb_color");
     if(fd_color.open(QIODevice::WriteOnly | QIODevice::Text) && keyboard_settings.color_left >= 0) {
         QTextStream out(&fd_color);
@@ -162,6 +154,14 @@ void setKeyboardValues() {
         fd_color.close();
     } else {
         std::cerr << "[clevo-xsm-wmi] Failed to set colour" << std::endl;
+    }
+    QFile fd_mode("/sys/devices/platform/clevo_xsm_wmi/kb_mode");
+    if(fd_mode.open(QIODevice::WriteOnly | QIODevice::Text) && keyboard_settings.mode >= 0) {
+        QTextStream out(&fd_mode);
+        out << keyboard_settings.mode;
+        fd_mode.close();
+    } else {
+        std::cerr << "[clevo-xsm-wmi] Failed to set mode" << std::endl;
     }
     QFile fd_state("/sys/devices/platform/clevo_xsm_wmi/kb_state");
     if(fd_state.open(QIODevice::WriteOnly | QIODevice::Text) && keyboard_settings.state >= 0) {

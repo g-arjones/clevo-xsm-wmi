@@ -1,0 +1,30 @@
+modname := clevo-xsm-wmi
+obj-m := $(modname).o
+
+KVERSION := $(shell uname -r)
+KDIR := /lib/modules/$(KVERSION)/build
+PWD := "$$(pwd)"
+
+ifdef DEBUG
+CFLAGS_$(obj-m) := -DDEBUG
+endif
+
+default:
+	$(MAKE) -C $(KDIR) M=$(PWD) modules
+
+clean:
+	$(MAKE) O=$(PWD) -C $(KDIR) M=$(PWD) clean
+
+load:
+	-rmmod $(modname)
+	insmod $(modname).ko
+
+install:
+	mkdir -p /lib/modules/$(KVERSION)/extra
+	install -m 0644 -o root -g root $(modname).ko /lib/modules/$(KVERSION)/extra/$(modname).ko
+	depmod -a
+
+uninstall:
+	rm /lib/modules/$(KVERSION)/extra/$(modname).ko
+	depmod -a
+

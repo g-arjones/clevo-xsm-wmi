@@ -14,6 +14,7 @@ module/clevo-xsm-wmi.ko: module
 
 install: module/clevo-xsm-wmi.c module/clevo-xsm-wmi.ko
 	make -C utility install
+	make -C dkms install
 	systemctl enable clevo-xsm-wmi.service
 	install -m644 module/clevo-xsm-wmi.ko $(MODDIR)
 	install -m644 module/misc/clevo-xsm-wmi.conf /etc/modules-load.d/clevo-xsm-wmi.conf

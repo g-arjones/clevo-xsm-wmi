@@ -56,14 +56,3 @@ utility/clevo-xsm-wmi
 
 # Generated files
 utility/Makefile
-
-# Visual Studio Code Settings
-.vscode/
-
-# Log files
-debug.log
-error.log
-
-__pycache__/
-*.py[cod]
-*$py.class

@@ -19,4 +19,8 @@ install: module/clevo-xsm-wmi.c module/clevo-xsm-wmi.ko
 	install -m644 module/misc/clevo-xsm-wmi.conf /etc/modules-load.d/clevo-xsm-wmi.conf
 	depmod
 
-.PHONY: all utility module install
+clean:
+	make -C utility clean
+	make -C module clean
+
+.PHONY: all utility module install clean

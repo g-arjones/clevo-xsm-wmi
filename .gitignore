@@ -56,3 +56,6 @@ utility/clevo-xsm-wmi
 
 # Generated files
 utility/Makefile
+module/.cache.mk
+utility/moc_mainwindow.cpp
+utility/ui_mainwindow.h

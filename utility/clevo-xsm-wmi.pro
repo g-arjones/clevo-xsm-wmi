@@ -15,7 +15,7 @@ HEADERS  += mainwindow.h helper.h
 
 FORMS    += mainwindow.ui
 
-INSTALLS += clevo-xsm-wmi clevo-xsm-wmi.service
+INSTALLS += clevo-xsm-wmi clevo-xsm-wmi.service clevo-xsm-wmi.desktop clevo-xsm-wmi.svg
 
 clevo-xsm-wmi.path = /usr/bin/
 clevo-xsm-wmi.files += clevo-xsm-wmi
@@ -23,3 +23,8 @@ clevo-xsm-wmi.files += clevo-xsm-wmi
 clevo-xsm-wmi.service.path = /usr/lib/systemd/system/
 clevo-xsm-wmi.service.files += systemd/clevo-xsm-wmi.service
 
+clevo-xsm-wmi.desktop.path = /usr/share/applications
+clevo-xsm-wmi.desktop.files += clevo-xsm-wmi.desktop
+
+clevo-xsm-wmi.svg.path = /usr/share/app-install/icons/
+clevo-xsm-wmi.svg.files += clevo-xsm-wmi.svg

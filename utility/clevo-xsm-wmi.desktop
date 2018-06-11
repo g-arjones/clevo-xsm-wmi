@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Clevo Backlight
+Exec=/usr/bin/clevo-xsm-wmi
+Icon=/usr/share/app-install/icons/clevo-xsm-wmi.svg
+StartupWMClass=clevo-xsm-wmi

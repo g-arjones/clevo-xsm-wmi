@@ -28,7 +28,7 @@ $ sudo shutdown -r now
 
 Adjusting keyboard settings:
 ```bash
-$ sudo clevo-xsm-wmi
+$ clevo-xsm-wmi
 ```
 
 Or use the keyboard hotkeys

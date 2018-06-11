@@ -1,4 +1,6 @@
 QT       += core gui
+QMAKE_CXXFLAGS += -Wno-unused-result
+QMAKE_INSTALL_PROGRAM = install -m 4755 -p
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -7,9 +9,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp helper.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h helper.h
 
 FORMS    += mainwindow.ui
 
@@ -20,3 +22,4 @@ clevo-xsm-wmi.files += clevo-xsm-wmi
 
 clevo-xsm-wmi.service.path = /usr/lib/systemd/system/
 clevo-xsm-wmi.service.files += systemd/clevo-xsm-wmi.service
+

@@ -23,6 +23,9 @@
 #include <QFile>
 #include <getopt.h>
 #include <iostream>
+#include <unistd.h>
+#include <sys/types.h>
+#include "helper.h"
 
 keyboard_s keyboard_settings;
 bool has_extra = true;
@@ -49,12 +52,17 @@ int main(int argc, char *argv[]) {
     }
 
     if(!onlySaveRestore) {
+        helper_start();
+        setuid(getuid());
+
         QApplication a(argc, argv);
         MainWindow w;
 
         w.show();
 
-        return a.exec();
+        int ret = a.exec();
+        helper_stop();
+        return ret;
     }
 
     return 0;

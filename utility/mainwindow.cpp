@@ -17,8 +17,10 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <unistd.h>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "helper.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -69,7 +71,7 @@ void MainWindow::on_pushButton_clicked() {
 }
 
 void MainWindow::on_buttonApply_clicked() {
-    setKeyboardValues();
+    write(helper_get_writefd(), &keyboard_settings, sizeof(keyboard_settings));
 }
 
 void MainWindow::updateUI() {
